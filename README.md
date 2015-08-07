@@ -6,10 +6,10 @@ In this project, I model financial risk via a Bayesian latent threshold multivar
 
 One of the most common forms of this is PCA, where the top eigenvalues are identified and the rest discarded. However, in this project I use a different matrix rotation and another method of inducing sparsity. As described in Nakajima & West's paper, I create an lower-triangular matrix A(t) that captures the conditional dependencies between the different time series. There are several other layers to this model, including a parameter that induces sparsity by setting some of the terms in the A(t) and B(t) (where B(t) is the matrix of beta coefficients at time t) matrices to zero if they go below a certain threshold, the level of which is determined by the data.
 
-This model also has applications outside the financial sector. As Nakajima and West explain in their paper, it presents a novel way to study dynamic networks. Furthermore, it can also be incorporated into a GLM (Poisson regression, logistic regression, etc) with the addition of the appropriate link function.
+This model also has applications outside the financial sector. As Nakajima and West explain in their paper, it presents a novel way to study dynamic networks. Furthermore, it can also be incorporated into a GLM (Poisson regression, logistic regression, etc) with a few tweaks.
 
 <center><img src="https://github.com/kkamb/crisisnetwork/blob/master/alphasurface.png"></center><br>
-A surface graph where the x-axis are the parameters in the lower-triangular A(t) matrix, representing the dependencies between the different time series, and the y-axis portrays the time (spanning 400 days).
+<small>Figure 1: This is one of the outputs of this model, a graphical representation of the time-varying dependencies between different time series. The x-axis are the discovered parameters in the lower-triangular A(t) matrix, representing how the y-variables are dependent on each other, and the y-axis is the time (spanning 400 days).</small>
 
 However, in its current form, it also has drawbacks. While it is very good at capturing gradual changes, it tends to miss dramatic ones. (I'm working on fixing this!) It is also extremely computationally taxing, and the parameters take a long time to converge. (I'm not sure how to fix this.)
 
