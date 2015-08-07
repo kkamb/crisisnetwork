@@ -9,7 +9,7 @@ One of the most common forms of this is PCA, where the top eigenvalues are ident
 This model also has applications outside the financial sector. As Nakajima and West explain in their paper, it presents a novel way to study dynamic networks. Furthermore, it can also be incorporated into a GLM (Poisson regression, logistic regression, etc) with a few tweaks.
 
 <center><img src="https://github.com/kkamb/crisisnetwork/blob/master/alphasurface.png"></center><br>
-<small>Figure 1: This is one of the outputs of this model, a graphical representation of the time-varying dependencies between different time series. The x-axis are the discovered parameters in the lower-triangular A(t) matrix, representing how the y-variables are dependent on each other, and the y-axis is the time (spanning 400 days).</small>
+<i>Figure 1: This is one of the outputs of this model, a graphical representation of the time-varying dependencies between different time series. The x-axis are the discovered parameters in the lower-triangular A(t) matrix, representing how the y-variables are dependent on each other, and the y-axis is the time (spanning 400 days).</i>
 
 However, in its current form, it also has drawbacks. While it is very good at capturing gradual changes, it tends to miss dramatic ones. (I'm working on fixing this!) It is also extremely computationally taxing, and the parameters take a long time to converge. (I'm not sure how to fix this.)
 
