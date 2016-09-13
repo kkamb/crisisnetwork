@@ -1,3 +1,5 @@
+%code largely replicates Nakajima's Ox-code for latent-threshold multivariate time-varying AR model
+
 fcrisis;
 nsim=20000;
 nburn=nsim*.1;
